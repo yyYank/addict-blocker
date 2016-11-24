@@ -1,4 +1,4 @@
-package com.github.yyyank.addict.blocker
+package com.github.yyyank.addict.blocker.activity
 
 import android.app.Activity
 import android.os.Bundle
