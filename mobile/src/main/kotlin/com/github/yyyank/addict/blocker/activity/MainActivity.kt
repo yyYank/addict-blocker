@@ -123,6 +123,7 @@ fun Spinner.selectByValue(value : String) {
     for(i in 0..this.adapter.count - 1) {
         if(value == adapter.getItem(i)) {
             setSelection(i)
+            return
         }
     }
 }
