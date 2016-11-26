@@ -11,11 +11,34 @@
             android:layout_height="match_parent"
             android:scaleType="fitCenter"/>
 
-    <SeekBar
-            android:id="@+id/seekBar1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginBottom="16dp" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                  android:orientation="vertical">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView android:id="@+id/title" android:textSize="35dip" android:background="@android:color/black" android:text="addict-blocker setting" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <TextView android:id="@+id/targetApp" android:textSize="30dip" android:text="対象アプリ(何をチェックするか)" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/targetSpinner"/>
+            <TextView android:id="@+id/count" android:textSize="30dip" android:text="回数(何回まで許すか)" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/countSpinner"/>
+            <TextView android:id="@+id/interval" android:textSize="30dip" android:text="インターバル(どのくらいの間隔で)" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/intervalSpinner"/>
+        </LinearLayout>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TEST"
+                android:id="@+id/button"/>
+    </LinearLayout>
 
 </FrameLayout>
