@@ -13,6 +13,10 @@ class AppLaunchReceiver : BroadcastReceiver() {
         if(Intent.ACTION_BOOT_COMPLETED !== intent?.getAction()) {
             return
         }
+
+        val name = context?.applicationInfo?.name
+        Toast.makeText(context, name, Toast.LENGTH_LONG).show()
+        // 無効化
         resultData = if("twitter" == context?.applicationInfo?.name) {
             Toast.makeText(context, "Twitter使いすぎだこの廃人め！！", Toast.LENGTH_LONG).show()
             // 無効化
