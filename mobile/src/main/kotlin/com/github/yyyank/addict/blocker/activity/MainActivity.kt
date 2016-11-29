@@ -2,6 +2,8 @@ package com.github.yyyank.addict.blocker.activity
 
 
 import android.app.Activity
+import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -12,6 +14,7 @@ import android.widget.Spinner
 import com.github.yyyank.addict.blocker.R
 import com.github.yyyank.addict.blocker.preferences.AddictBlockerSettings
 import com.github.yyyank.addict.blocker.preferences.SettingsType
+import com.github.yyyank.addict.blocker.receiver.AppLaunchReceiver
 
 
 /**
@@ -19,9 +22,15 @@ import com.github.yyyank.addict.blocker.preferences.SettingsType
  */
 class MainActivity : Activity(){
 
+    val receiver = AppLaunchReceiver()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
+
+
+
         setContentView(R.layout.main_layout);
         val c = applicationContext
         val intervalSelected = AddictBlockerSettings.load(c, "interval", SettingsType.String)?.value as String
@@ -103,6 +112,20 @@ class MainActivity : Activity(){
                 Log.d("AddictBlocker", "targetApp ${AddictBlockerSettings.load(c, "targetApp", SettingsType.String)?.value.toString()}")
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val filter = IntentFilter()
+        filter.addAction(Intent.ACTION_MAIN)
+        registerReceiver(receiver, filter)
+    }
+
+
+    override fun onPause() {
+        super.onPause()
+
+        unregisterReceiver(receiver)
     }
 
 

@@ -10,10 +10,6 @@ import android.widget.Toast
  */
 class AppLaunchReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
-        if(Intent.ACTION_BOOT_COMPLETED !== intent?.getAction()) {
-            return
-        }
-
         val name = context?.applicationInfo?.name
         Toast.makeText(context, name, Toast.LENGTH_LONG).show()
         // 無効化
