@@ -10,7 +10,7 @@ import android.util.Log
 object AddictBlockerSettings {
 
 
-    fun <V>save(context : Context, key : String, value : V) {
+    fun <V> save(context: Context, key: String, value: V) {
         val data = context.getSharedPreferences("AddictBlockerSettings", Context.MODE_PRIVATE)
 
         Log.d("AddictBlocker", "AddictBlockerSettings save")
@@ -29,26 +29,25 @@ object AddictBlockerSettings {
 
     }
 
-    fun load(context : Context, key : String, type : SettingsType) : SettingValue<*>? {
+    fun load(context: Context, key: String, type: SettingsType): SettingValue<*>? {
         Log.d("AddictBlocker", "AddictBlockerSettings load")
         Log.d("AddictBlocker", "key is  $key")
         val data = context.getSharedPreferences("AddictBlockerSettings", Context.MODE_PRIVATE)
-            return when (type) {
-                SettingsType.String -> SettingValue(data.getString(key, ""))
-                SettingsType.Int -> SettingValue(data.getInt(key, -1))
-                SettingsType.Boolean -> SettingValue(data.getBoolean(key, false))
-                SettingsType.Float -> SettingValue((data.getFloat(key, -1f)))
-                SettingsType.Long -> SettingValue(data.getLong(key, -1L))
-                else -> throw IllegalArgumentException("それはだめ")
-            }
+        return when (type) {
+            SettingsType.String -> SettingValue(data.getString(key, ""))
+            SettingsType.Int -> SettingValue(data.getInt(key, -1))
+            SettingsType.Boolean -> SettingValue(data.getBoolean(key, false))
+            SettingsType.Float -> SettingValue((data.getFloat(key, -1f)))
+            SettingsType.Long -> SettingValue(data.getLong(key, -1L))
+            else -> throw IllegalArgumentException("それはだめ")
+        }
     }
-
 
 
 }
 
-class SettingValue<V>(value : V) {
-    val value : V = value
+class SettingValue<V>(value: V) {
+    val value: V = value
 }
 
 enum class SettingsType {

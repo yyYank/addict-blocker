@@ -3,7 +3,6 @@ package com.github.yyyank.addict.blocker.activity
 
 import android.app.Activity
 import android.content.Intent
-import android.content.IntentFilter
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -20,7 +19,7 @@ import com.github.yyyank.addict.blocker.receiver.AppLaunchObserver
 /**
  * Created by yy_yank on 2016/11/23.
  */
-class MainActivity : Activity(){
+class MainActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +36,7 @@ class MainActivity : Activity(){
                     val value = count.selectedItem;
                     AddictBlockerSettings.save(c, "count", value)
                 }
+
                 override fun onNothingSelected(parent: AdapterView<*>?) {
                 }
             }
@@ -61,6 +61,7 @@ class MainActivity : Activity(){
                     val value = interval.selectedItem;
                     AddictBlockerSettings.save(c, "interval", value)
                 }
+
                 override fun onNothingSelected(parent: AdapterView<*>?) {
                 }
             }
@@ -86,6 +87,7 @@ class MainActivity : Activity(){
                     val value = targetApp.selectedItem;
                     AddictBlockerSettings.save(c, "targetApp", value)
                 }
+
                 override fun onNothingSelected(parent: AdapterView<*>?) {
                 }
             }
@@ -114,8 +116,6 @@ class MainActivity : Activity(){
     }
 
 
-
-
     init {
         Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
             Log.d("AddictBlocker", throwable.message)
@@ -128,10 +128,9 @@ class MainActivity : Activity(){
 }
 
 
-
-fun Spinner.selectByValue(value : String) {
-    for(i in 0..this.adapter.count - 1) {
-        if(value == adapter.getItem(i)) {
+fun Spinner.selectByValue(value: String) {
+    for (i in 0..this.adapter.count - 1) {
+        if (value == adapter.getItem(i)) {
             setSelection(i)
             return
         }

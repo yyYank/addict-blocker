@@ -1,16 +1,12 @@
 package com.github.yyyank.addict.blocker.receiver
 
-import android.app.ActivityManager
 import android.app.Service
 import android.app.usage.UsageEvents
 import android.app.usage.UsageStatsManager
-import android.content.BroadcastReceiver
-import android.content.Context
 import android.content.Intent
 import android.os.Binder
 import android.os.IBinder
 import android.util.Log
-import android.widget.Toast
 
 /**
  * Created by yy_yank on 2016/11/24.
